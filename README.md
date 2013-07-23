@@ -1,2 +1,4 @@
 phonegap
 ========
+
+Test phonegap application
