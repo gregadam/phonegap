@@ -1,7 +1,6 @@
 function capturePhoto() {  
     navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL
-    });
+      destinationType: Camera.DestinationType.FILE_URI });
 }
 
 function onSuccess(imageData) {
@@ -13,3 +12,5 @@ function onSuccess(imageData) {
 function onFail(message) {
     alert('Failed because: ' + message);
 }
+
+
