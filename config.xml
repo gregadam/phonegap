@@ -49,8 +49,7 @@
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
 
-    <plugin name="Camera" value="CDVCamera" />
-    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
+    <gap:plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
