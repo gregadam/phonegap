@@ -50,6 +50,7 @@
     -->
 
     <plugin name="Camera" value="CDVCamera" />
+    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
