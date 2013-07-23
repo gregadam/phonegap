@@ -5,6 +5,7 @@ function capturePhoto() {
 }
 
 function onSuccess(imageData) {
+    alert('Success');
     var image = document.getElementById('smallImage');
     image.src = "data:image/jpeg;base64," + imageData;
 }
