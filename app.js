@@ -21,21 +21,21 @@ function onFail(message) {
 	Capture audio
 */
 
-function captureSuccess(mediaFiles) {
-    var i, path, len;
-    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-        path = mediaFiles[i].fullPath;
-        // do something interesting with the file
-    }
-};
+// Record audio
+//
+function recordAudio() {
+    var src = "myrecording.mp3";
+    var mediaRec = new Media(src,
+        // success callback
+        function() {
+            console.log("recordAudio():Audio Success");
+        },
 
-// capture error callback
-function captureError(error) {
-    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-};
+        // error callback
+        function(err) {
+            console.log("recordAudio():Audio Error: "+ err.code);
+        });
 
-function captureAudio() {
-	// start audio capture
-	navigator.device.capture.captureVidio(captureSuccess, captureError, {limit:2});
+    // Record audio
+    mediaRec.startRecord();
 }
-
