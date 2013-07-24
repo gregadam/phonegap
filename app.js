@@ -1,3 +1,10 @@
+document.addEventListener("deviceready", onDeviceReady, false)
+
+function onDeviceReady() {
+	alert("Device is ready");
+	recordAudio();
+}
+
 /*
 	Capture Photo
 */
@@ -24,16 +31,18 @@ function onFail(message) {
 // Record audio
 //
 function recordAudio() {
+	alert("recordAudio() called");
     var src = "myrecording.mp3";
     var mediaRec = new Media(src,
         // success callback
         function() {
-            console.log("recordAudio():Audio Success");
+
+            alert(type, listener);("recordAudio():Audio Success");
         },
 
         // error callback
         function(err) {
-            console.log("recordAudio():Audio Error: "+ err.code);
+            alert("recordAudio():Audio Error: "+ err.code);
         });
 
     // Record audio
