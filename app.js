@@ -1,6 +1,6 @@
 /*
 	Capture Photo
-*/
+
 
 function capturePhoto() {  
     navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
@@ -16,12 +16,13 @@ function onSuccess(imageData) {
 function onFail(message) {
     alert('Failed because: ' + message);
 }
-
+*/
 /*
 	Capture audio
 */
 
-function captureSuccess(mediaFiles) {
+// capture callback
+var captureSuccess = function(mediaFiles) {
     var i, path, len;
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].fullPath;
@@ -30,13 +31,10 @@ function captureSuccess(mediaFiles) {
 };
 
 // capture error callback
-function captureError(error) {
+var captureError = function(error) {
     navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
 };
 
-function captureAudio() {
-	// start audio capture
-	alert("Starting audio capture");
-	navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
-}
+// start audio capture
+navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
 
