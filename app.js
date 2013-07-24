@@ -1,10 +1,3 @@
-document.addEventListener("deviceready", onDeviceReady, false)
-
-function onDeviceReady() {
-	alert("Device is ready");
-	recordAudio();
-}
-
 /*
 	Capture Photo
 */
@@ -28,23 +21,21 @@ function onFail(message) {
 	Capture audio
 */
 
-// Record audio
-//
-function recordAudio() {
-	alert("recordAudio() called");
-    var src = "test.wav";
-    var mediaRec = new Media(src,
-        // success callback
-        function() {
+function captureSuccess(mediaFiles) {
+    var i, path, len;
+    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+        path = mediaFiles[i].fullPath;
+        // do something interesting with the file
+    }
+};
 
-            alert(type, listener);("recordAudio():Audio Success");
-        },
+// capture error callback
+function captureError(error) {
+    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+};
 
-        // error callback
-        function(err) {
-            alert("recordAudio():Audio Error: "+ err.code);
-        });
-
-    // Record audio
-    mediaRec.startRecord();
+function captureAudio() {
+	// start audio capture
+	navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
 }
+
