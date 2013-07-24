@@ -32,7 +32,7 @@ function onFail(message) {
 //
 function recordAudio() {
 	alert("recordAudio() called");
-    var src = "myrecording.mp3";
+    var src = "test.wav";
     var mediaRec = new Media(src,
         // success callback
         function() {
