@@ -36,7 +36,7 @@ function captureError(error) {
 
 function captureAudio() {
 	// start audio capture
-	alert("Starting audio capture");
+	if (alert("Starting audio capture: " + navigator.audio);
 	navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
 }
 
